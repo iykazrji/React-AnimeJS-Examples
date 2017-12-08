@@ -8,7 +8,8 @@ import {
   PageTitleSpan1,
   AnimationContainer,
   AnimeElement,
-  AnimeButton
+  AnimeButton,
+  PageTitleP1
 } from "./styled-components";
 
 const AnimateElement = (target, animate) => {
@@ -27,20 +28,30 @@ const AnimateElement = (target, animate) => {
   });
 };
 
+const ButtonPressedStyle = {
+    transform: 'scale(0.8)'
+}
+
 export default class SingleAnimation extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      animate: true
+      animate: true,
+      buttonPressed: false
     };
     this.setorreset = this.setorreset.bind(this);
   }
   setorreset(e) {
     e.preventDefault();
     this.setState({
-      animate: !this.state.animate
+      animate: !this.state.animate,
+      buttonPressed: !this.state.buttonPressed
     });
-
+    window.setTimeout(()=>{
+        this.setState({
+            buttonPressed: !this.state.buttonPressed
+        })
+    }, 50)
     AnimateElement(this.AnimeElement, this.state.animate); //Run the animate Function
   }
   render() {
@@ -49,6 +60,7 @@ export default class SingleAnimation extends Component {
         <BgContainer>
           <PageTitleContainer>
             <PageTitleSpan1>React - Anime Example.</PageTitleSpan1>
+            <PageTitleP1>Animating Single Elements</PageTitleP1>
           </PageTitleContainer>
           <AnimationContainer>
             <AnimeElement
@@ -57,7 +69,7 @@ export default class SingleAnimation extends Component {
                 this.AnimeElement = node;
               }}
             />
-            <AnimeButton href="#" onClick={this.setorreset}>
+            <AnimeButton href="#" onClick={this.setorreset} style={this.state.buttonPressed ? {...ButtonPressedStyle} : null}>
               {this.state.animate ? "Animate" : "Return"}
             </AnimeButton>
           </AnimationContainer>
