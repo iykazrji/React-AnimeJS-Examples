@@ -10,7 +10,7 @@ import {
   AnimeElement,
   AnimeButton,
   PageTitleP1
-} from "./styled-components";
+} from "../../styled-components";
 
 const AnimateElement = (target, animate) => {
   console.log("target: " + target);
@@ -57,11 +57,8 @@ export default class SingleAnimation extends Component {
   render() {
     return (
       <div>
-        <BgContainer>
-          <PageTitleContainer>
-            <PageTitleSpan1>React - Anime Example.</PageTitleSpan1>
-            <PageTitleP1>Animating Single Elements</PageTitleP1>
-          </PageTitleContainer>
+        <BgContainer className="bg-container">
+         <PageTitleP1>Animating Single Elements</PageTitleP1>
           <AnimationContainer>
             <AnimeElement
               id="anime-element"
