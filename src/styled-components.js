@@ -32,7 +32,7 @@ export const AnimationContainer = Styled.div`
 
 export const AnimeElement = Styled.div`
     height: 30px;
-    width: 300px;
+    width: 25%;
     background: linear-gradient(90deg, #bc4e9c, #f80759);
     margin-top: 100px;
 `;
@@ -78,10 +78,10 @@ export const PageTitleContainer = Styled.div`
 
 export const AppWrapper = Styled.div`
     max-width: 100vw;
-    overflow: hidden;
+    overflow-x: hidden;
     background: linear-gradient(#16222A, #16222A);
     height: 100vh;
-    width: 100vw;
+    padding-bottom: 300px;
 `;
 
 export const MenuWrapper = Styled.div`
