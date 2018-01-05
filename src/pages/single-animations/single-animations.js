@@ -55,22 +55,9 @@ export default class SingleAnimation extends Component {
     this.state = {
       animate: true,
       buttonPressed: false,
-      in: false
     };
     this.setorreset = this.setorreset.bind(this);
   }
-  
-  componentWillMount () {
-    this.setState({
-      in: true
-    })
-  }
-  componentWillUnmount () {
-    this.setState({
-      in: false
-    })
-  }
-  
   setorreset(e) {
     e.preventDefault();
     this.setState({
@@ -86,30 +73,20 @@ export default class SingleAnimation extends Component {
   }
   render() {
     return (
-      <Transition in={this.state.in} 
-                  {...this.props} 
-                  timeout={800} 
-                  onEntering={animatePageIn}
-                  onEnter={animatePageIn}
-                  onExit={animatePageOut}>{
-                    () =>{ return (
-                      <BgContainer className="bg-container">
-                        <PageTitleP1>Animating Single Elements</PageTitleP1>
-                          <AnimationContainer>
-                            <AnimeElement
-                              id="anime-element"
-                              innerRef={node => {
-                                this.AnimeElement = node;
-                              }}
-                            />
-                            <AnimeButton href="#" onClick={this.setorreset} style={this.state.buttonPressed ? {...ButtonPressedStyle} : null}>
-                              {this.state.animate ? "Animate" : "Return"}
-                            </AnimeButton>
-                          </AnimationContainer>
-                        </BgContainer>
-                    )}
-                  } 
-      </Transition>
+            <BgContainer className="bg-container">
+              <PageTitleP1>Animating Single Elements</PageTitleP1>
+                <AnimationContainer>
+                  <AnimeElement
+                    id="anime-element"
+                    innerRef={node => {
+                      this.AnimeElement = node;
+                    }}
+                  />
+                  <AnimeButton href="#" onClick={this.setorreset} style={this.state.buttonPressed ? {...ButtonPressedStyle} : null}>
+                    {this.state.animate ? "Animate" : "Return"}
+                  </AnimeButton>
+                </AnimationContainer>
+              </BgContainer>
     );
   }
 }

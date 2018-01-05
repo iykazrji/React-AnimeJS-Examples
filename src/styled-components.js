@@ -1,5 +1,7 @@
 import Styled from "styled-components";
 
+// This would be the container for the various Animations
+// We are trying out.
 export const BgContainer = Styled.div`
     width: 60%;
     background-color: #f9f9f9;
@@ -7,7 +9,11 @@ export const BgContainer = Styled.div`
     padding: 50px;
     box-shadow: 2px 2px 4px rgba(50, 50, 50, 0.12);
     border-radius: 8px;
+    position: absolute;
+    left: 0;
+    right: 0;
 `;
+
 export const PageTitleSpan1 = Styled.span`
     font-weight: 800;
     font-style: italic;
@@ -21,6 +27,7 @@ export const PageTitleSpan1 = Styled.span`
     font-size: 60px;
     letter-spacing: 4px;
 `;
+
 export const AnimationContainer = Styled.div`
     width: 100%;
     margin: 0 auto;

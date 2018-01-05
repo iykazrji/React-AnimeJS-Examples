@@ -5,41 +5,23 @@ import SingleAnimation from "./pages/single-animations/single-animations.js";
 import MultipleAnimations from "./pages/multiple-animations/multiple-animaitons.js";
 import { MenuComponent } from "./components/menu-component";
 import { TransitionGroup, Transition } from "react-transition-group";
+import { animatePageIn, animatePageOut } from "./animations/route-transtion";
 import {
   PageTitleSpan1,
   PageTitleContainer,
   AppWrapper,
   MenuWrapper
 } from "./styled-components";
-import Anime from "animejs";
 
-const firstChild = props => {
-  const childrenArray = React.Children.toArray(props.children);
-  return childrenArray[0] || null;
-};
-
-const animatePageIn = PageElement => {
-  let animation = Anime({
-    targets: PageElement,
-    translateX: ["100%", "0"],
-    opacity: [0, 1]
-  });
-  console.log("Entering: " + PageElement);
-};
-const animatePageOut = PageElement => {
-  let animation = Anime({
-    targets: PageElement,
-    translateX: ["0", "100%"],
-    opacity: [1, 0]
-  });
-};
+import RouteTransitionHOC from "./HOC/route-transition-hoc";
 
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    console.log(props)
+    console.log(props);
   }
   render() {
+    let animationDuration = 700;
     return (
       <Router>
         <AppWrapper>
@@ -49,10 +31,31 @@ class App extends Component {
           <MenuWrapper>
             <MenuComponent />
           </MenuWrapper>
-          <TransitionGroup>
-              <Route exact path="/" component={SingleAnimation} />
-              <Route path="/multiple-animations" component={MultipleAnimations} />    
-          </TransitionGroup>
+          <Route
+            render={props => {
+              console.log(props.location.pathname)
+              return (
+                <TransitionGroup>
+                  <Transition
+                    key={props.location.pathname}
+                    timeout={500}
+                    mountOnEnter={true}
+                    unmountOnExit={true}
+                    onEnter={animatePageIn}
+                    onExit={animatePageOut}
+                  >
+                    <Switch location={props.location}>
+                      <Route exact path="/" component={SingleAnimation} />
+                      <Route
+                        path="/multiple-animations"
+                        component={MultipleAnimations}
+                      />
+                    </Switch>
+                  </Transition>
+                </TransitionGroup>
+              );
+            }}
+          />
         </AppWrapper>
       </Router>
     );

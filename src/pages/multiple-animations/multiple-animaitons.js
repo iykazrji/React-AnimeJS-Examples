@@ -9,7 +9,7 @@ class MultipleAnimations extends Component {
     render() {
         return (
             <div>
-                <BgContainer>
+                <BgContainer className="bg-container">
                     <PageTitleP1>Multiple Animations</PageTitleP1>
                     <AnimationContainer>
                         <AnimeButton href="#"> Animation </AnimeButton>
