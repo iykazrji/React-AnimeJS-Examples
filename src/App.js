@@ -13,8 +13,6 @@ import {
   MenuWrapper
 } from "./styled-components";
 
-import RouteTransitionHOC from "./HOC/route-transition-hoc";
-
 class App extends Component {
   constructor(props) {
     super(props);

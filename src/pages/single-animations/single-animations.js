@@ -33,22 +33,6 @@ const ButtonPressedStyle = {
     transform: 'scale(0.8)'
 }
 
-const animatePageIn = (PageElement) => {
-  let animation = Anime({
-     targets: PageElement,
-     translateX: ['100%', '0',],
-     opacity: [0, 1],
-     duration: 3500
-  });
-  console.log("Entering: ", PageElement)
-}
-const animatePageOut = (PageElement) => {
- let animation = Anime({
-   targets: PageElement,
-   translateX: ['0', '100%',],
-   opacity: [1, 0]
-});
-}
 export default class SingleAnimation extends Component {
   constructor(props) {
     super(props);

@@ -33,8 +33,10 @@ export const AnimationContainer = Styled.div`
     margin: 0 auto;
     margin-top: 100px;
     display: flex;
+    position: relative;
     flex-direction: column;
     padding: 20px;
+    overflow: hidden;
 `;
 
 export const AnimeElement = Styled.div`
@@ -99,3 +101,30 @@ export const MenuWrapper = Styled.div`
     padding-top: 30px;
     padding-bottom: 30px;
 `;
+
+export const MultipleAnimationsElementContainer = Styled.ul`
+    width: 100%;
+    min-height: 50px;
+    background: linear-gradient(130deg, #7F00FF, #E100FF);   
+    left: 0; right: 0;
+    margin: 0 auto;
+    list-style: none;
+    -webkit-padding-start: 0px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    li{
+      width: 100%;
+      height: 90px;
+      background:  linear-gradient(130deg, rgba(201, 214, 255, 0.64), rgba(226, 226, 226, 0.49));
+      margin-bottom: 10px;
+      box-shadow: 1px 2px 5px rgba(0,0,0,0.12);
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+`
+export const MultipleAnimationsWrapper = Styled.div`
+    overflow: hidden;
+`
