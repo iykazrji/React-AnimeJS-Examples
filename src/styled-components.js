@@ -43,7 +43,7 @@ export const AnimeElement = Styled.div`
     height: 30px;
     width: 25%;
     background: linear-gradient(90deg, #bc4e9c, #f80759);
-    margin-top: 100px;
+    margin-top: 10px;
 `;
 export const AnimeButton = Styled.button`
     display: block;
@@ -60,7 +60,8 @@ export const AnimeButton = Styled.button`
     letter-spacing: 3px;
     font-size: 10px;
     font-family: 'Montserrat', sans-serif;
-    margin-top: 200px;
+    margin: 0 auto;
+    margin-top: 60px;
     cursor: pointer;
     border-radius: 32px;
     transition: all 0.1s ease-in;
@@ -105,26 +106,27 @@ export const MenuWrapper = Styled.div`
 export const MultipleAnimationsElementContainer = Styled.ul`
     width: 100%;
     min-height: 50px;
-    background: linear-gradient(130deg, #7F00FF, #E100FF);   
     left: 0; right: 0;
     margin: 0 auto;
     list-style: none;
     -webkit-padding-start: 0px;
-    display: flex;
     flex-direction: column;
     padding: 10px;
+    display: block;
     li{
-      width: 100%;
+      width: 90px;
       height: 90px;
-      background:  linear-gradient(130deg, rgba(201, 214, 255, 0.64), rgba(226, 226, 226, 0.49));
-      margin-bottom: 10px;
+      background:  linear-gradient(190deg, #fc5c7d, #6a82fb);
+      margin-bottom: 20px;
       box-shadow: 1px 2px 5px rgba(0,0,0,0.12);
       font-weight: 800;
       display: flex;
       align-items: center;
       justify-content: center;
+      color: #ffffff;
     }
 `
 export const MultipleAnimationsWrapper = Styled.div`
     overflow: hidden;
+    
 `

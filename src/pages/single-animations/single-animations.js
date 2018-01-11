@@ -11,7 +11,8 @@ import {
   AnimeButton,
   PageTitleP1
 } from "../../styled-components";
-import { Transition } from 'react-transition-group'
+import { Transition } from 'react-transition-group';
+import AnimationButton from '../../components/animation-button'
 
 const AnimateElement = (target, animate) => {
   console.log("target: " + target);
@@ -37,22 +38,15 @@ export default class SingleAnimation extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      animate: true,
-      buttonPressed: false,
+      animate: true
     };
-    this.setorreset = this.setorreset.bind(this);
+    this.setOrReset = this.setOrReset.bind(this);
   }
-  setorreset(e) {
-    e.preventDefault();
+  setOrReset(e) {
+    console.log('Running Animate');
     this.setState({
-      animate: !this.state.animate,
-      buttonPressed: !this.state.buttonPressed
+      animate: !this.state.animate
     });
-    window.setTimeout(()=>{
-        this.setState({
-            buttonPressed: !this.state.buttonPressed
-        })
-    }, 50)
     AnimateElement(this.AnimeElement, this.state.animate); //Run the animate Function
   }
   render() {
@@ -66,9 +60,7 @@ export default class SingleAnimation extends Component {
                       this.AnimeElement = node;
                     }}
                   />
-                  <AnimeButton href="#" onClick={this.setorreset} style={this.state.buttonPressed ? {...ButtonPressedStyle} : null}>
-                    {this.state.animate ? "Animate" : "Return"}
-                  </AnimeButton>
+                  <AnimationButton handleClick={this.setOrReset.bind(this)}/>
                 </AnimationContainer>
               </BgContainer>
     );

@@ -10,10 +10,19 @@ import {
   MultipleAnimationsWrapper
 } from "../../styled-components";
 
+import AnimationButton from "../../components/animation-button";
+
 class MultipleAnimations extends Component {
   
 constructor(props){
     super(props);
+    this.state = {
+      animate: false
+    }
+}
+
+setOrReset(){
+  console.log('Runing Animation')
 }
 
 render() {
@@ -29,7 +38,7 @@ render() {
                     <li className="multiple-animations-element__li">3</li>
                 </MultipleAnimationsElementContainer>
             </MultipleAnimationsWrapper>
-            <AnimeButton href="#"> Animation </AnimeButton>
+            <AnimationButton handleClick={this.setOrReset} href="#"> Animation </AnimationButton>
           </AnimationContainer>
         </BgContainer>
       </div>

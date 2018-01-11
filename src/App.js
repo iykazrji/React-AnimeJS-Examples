@@ -24,7 +24,7 @@ class App extends Component {
       <Router>
         <AppWrapper>
           <PageTitleContainer>
-            <PageTitleSpan1>React - Anime Examples.</PageTitleSpan1>
+            <PageTitleSpan1>React - AnimeJS Examples.</PageTitleSpan1>
           </PageTitleContainer>
           <MenuWrapper>
             <MenuComponent />
