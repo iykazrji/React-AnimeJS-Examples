@@ -24,7 +24,7 @@ export const MenuComponent  = (props)=>{
     return(
          <MenuComponentUl>
             <li><Link to="/">Single Animations</Link></li>
-            <li><Link to="/multiple-animations">Multiple Elements Animations</Link></li>
+            <li><Link to="/multiple-animations">Multiple Elements Animations (With Delay)</Link></li>
          </MenuComponentUl>
     )
 }

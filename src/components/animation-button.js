@@ -15,7 +15,8 @@ export default class AnimationButton extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      buttonPressed: false
+      buttonPressed: false,
+      animate: true
     };
     this.handlePressed = this.handlePressed.bind(this);
   }
@@ -23,7 +24,8 @@ export default class AnimationButton extends Component {
     this.props.handleClick();
 
     this.setState({
-      buttonPressed: !this.state.buttonPressed
+      buttonPressed: !this.state.buttonPressed, 
+      animate: !this.state.animate
     });
     window.setTimeout(() => {
       this.setState({

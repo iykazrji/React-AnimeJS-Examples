@@ -15,7 +15,6 @@ import { Transition } from 'react-transition-group';
 import AnimationButton from '../../components/animation-button'
 
 const AnimateElement = (target, animate) => {
-  console.log("target: " + target);
   Anime.remove(target); // Stop and remove this element from current animation if present...
   let targetParent = target.parentNode;
   let animation = Anime({
@@ -43,7 +42,6 @@ export default class SingleAnimation extends Component {
     this.setOrReset = this.setOrReset.bind(this);
   }
   setOrReset(e) {
-    console.log('Running Animate');
     this.setState({
       animate: !this.state.animate
     });
@@ -60,7 +58,7 @@ export default class SingleAnimation extends Component {
                       this.AnimeElement = node;
                     }}
                   />
-                  <AnimationButton handleClick={this.setOrReset.bind(this)}/>
+                  <AnimationButton handleClick={this.setOrReset}/>
                 </AnimationContainer>
               </BgContainer>
     );

@@ -9,7 +9,6 @@ export const animatePageIn = PageElement => {
     duration: 3000,
     delay: 500
   });
-  console.log("Entering: ", PageElement);
 };
 
 export const animatePageOut = PageElement => {
@@ -20,5 +19,4 @@ export const animatePageOut = PageElement => {
     opacity: [1, 0],
     duration: 3000
   });
-  console.log("Leaving: ", PageElement);
 };

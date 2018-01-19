@@ -16,7 +16,6 @@ import {
 class App extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
   }
   render() {
     let animationDuration = 700;
@@ -31,7 +30,6 @@ class App extends Component {
           </MenuWrapper>
           <Route
             render={props => {
-              console.log(props.location.pathname)
               return (
                 <TransitionGroup>
                   <Transition
