@@ -12,6 +12,7 @@ export const BgContainer = Styled.div`
     position: absolute;
     left: 0;
     right: 0;
+    overflow: hidden;
 `;
 
 export const PageTitleSpan1 = Styled.span`
@@ -35,8 +36,6 @@ export const AnimationContainer = Styled.div`
     display: flex;
     position: relative;
     flex-direction: column;
-    padding: 20px;
-    overflow: hidden;
 `;
 
 export const AnimeElement = Styled.div`
@@ -107,16 +106,15 @@ export const MultipleAnimationsElementContainer = Styled.ul`
     width: 100%;
     min-height: 50px;
     left: 0; right: 0;
-    margin: 0 auto;
     list-style: none;
-    -webkit-padding-start: 0px;
-    flex-direction: column;
-    padding: 10px;
-    display: block;
+    flex-direction: row;
+    padding-left: 0px;
+    display: inline-block;
     li{
       width: 90px;
       height: 90px;
       background:  linear-gradient(190deg, #fc5c7d, #6a82fb);
+      margin: 0;
       margin-bottom: 20px;
       box-shadow: 1px 2px 5px rgba(0,0,0,0.12);
       font-weight: 800;
@@ -127,6 +125,5 @@ export const MultipleAnimationsElementContainer = Styled.ul`
     }
 `
 export const MultipleAnimationsWrapper = Styled.div`
-    overflow: hidden;
     
 `
