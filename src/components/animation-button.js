@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
-import { AnimeButton } from "../styled-components";
+import { AnimeButton } from "../styled-components/styled-components";
 
 const ButtonPressedStyle = {
   transform: "scale(0.8)"

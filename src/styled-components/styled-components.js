@@ -2,13 +2,16 @@ import Styled from "styled-components";
 
 // This would be the container for the various Animations
 // We are trying out.
+
+export const color_purple = '#C26EFF';
+export const color_green = '#18FF92';
 export const BgContainer = Styled.div`
     width: 60%;
-    background-color: #f9f9f9;
+    border: 1px solid ${color_green};
     margin: 0 auto;
     padding: 50px;
-    box-shadow: 2px 2px 4px rgba(50, 50, 50, 0.12);
-    border-radius: 8px;
+    box-shadow: 0px 0px 4px rgba(12, 204, 120, 0.12);
+    border-radius: 1px;
     position: absolute;
     left: 0;
     right: 0;
@@ -20,7 +23,7 @@ export const PageTitleSpan1 = Styled.span`
     font-style: italic;
     text-transform: uppercase;
     display: block;
-    color: #0CCC78;
+    color: ${color_green};
     width: 80%;
     margin: 0 auto;
     text-align: center;
@@ -40,20 +43,21 @@ export const AnimationContainer = Styled.div`
 
 export const AnimeElement = Styled.div`
     height: 30px;
-    width: 25%;
-    background: linear-gradient(90deg, #bc4e9c, #f80759);
+    width: 20%;
+    border: 1px solid ${color_green};
+    background: rgba(0,0,0,0);
     margin-top: 10px;
 `;
 export const AnimeButton = Styled.button`
     display: block;
-    height: 45px;
-    width: 200px;
+    height: 40px;
+    width: 180px;
     align-self: center;
-    background: linear-gradient(90deg, #36D1DC, #5B86E5);
-    color: #ffffff;
+    background: rgba(0, 0, 0, 0);
+    border: 1px solid ${color_green};
+    color: ${color_green};
     box-shadow: 1px 1px 2px rgba(20, 20, 20, 0.08);
     outline: none;
-    border: none;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 3px;
@@ -71,7 +75,7 @@ export const PageTitleP1 = Styled.p`
     font-weight: 700;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
-    color: #666;
+    color: ${color_green};
     text-transform: uppercase;
     letter-spacing: 5px;
     margin-top: 50px;
@@ -89,7 +93,7 @@ export const AppWrapper = Styled.div`
     max-width: 100vw;
     overflow-x: hidden;
     background: linear-gradient(#16222A, #16222A);
-    height: 100vh;
+    height: 100vh;  
     padding-bottom: 300px;
 `;
 
@@ -111,17 +115,18 @@ export const MultipleAnimationsElementContainer = Styled.ul`
     padding-left: 0px;
     display: inline-block;
     li{
-      width: 90px;
-      height: 90px;
-      background:  linear-gradient(190deg, #fc5c7d, #6a82fb);
+      width: 50px;
+      height: 50px;
+      border: 0.5px solid ${color_green};
       margin: 0;
       margin-bottom: 20px;
       box-shadow: 1px 2px 5px rgba(0,0,0,0.12);
       font-weight: 800;
+      font-size: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #ffffff;
+      color: ${color_green};
     }
 `
 export const MultipleAnimationsWrapper = Styled.div`

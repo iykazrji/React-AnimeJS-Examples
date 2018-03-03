@@ -10,7 +10,7 @@ import {
   AnimeElement,
   AnimeButton,
   PageTitleP1
-} from "../../styled-components";
+} from "../../styled-components/styled-components";
 import { Transition } from 'react-transition-group';
 import AnimationButton from '../../components/animation-button'
 
@@ -22,6 +22,7 @@ const AnimateElement = (target, animate) => {
     translateX: animate
       ? `${targetParent.offsetWidth - target.offsetWidth}px`
       : "0",
+    backgroundColor: animate ? '#18FF92' : 'rgba(0,0,0,0)',
     scaleX: animate ? 0.13 : 1,
     scaleY: animate ? 8 : 1,
     duration: 1500,

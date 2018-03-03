@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Styled from "styled-components";
-import SingleAnimation from "./pages/single-animations/single-animations.js";
-import MultipleAnimations from "./pages/multiple-animations/multiple-animaitons.js";
+import SingleAnimation from "./pages/single-animations/single-animations";
+import MultipleAnimations from "./pages/multiple-animations/multiple-animaitons";
+import TimelineAnimations from  "./pages/timeline-animations/timeline-animations"
 import { MenuComponent } from "./components/menu-component";
 import { TransitionGroup, Transition } from "react-transition-group";
 import { animatePageIn, animatePageOut } from "./animations/route-transtion";
@@ -11,7 +12,7 @@ import {
   PageTitleContainer,
   AppWrapper,
   MenuWrapper
-} from "./styled-components";
+} from "./styled-components/styled-components";
 
 class App extends Component {
   constructor(props) {
@@ -46,6 +47,9 @@ class App extends Component {
                         path="/multiple-animations"
                         component={MultipleAnimations}
                       />
+                      <Route 
+                        path="/timeline-animations" 
+                        component={TimelineAnimations} />
                     </Switch>
                   </Transition>
                 </TransitionGroup>

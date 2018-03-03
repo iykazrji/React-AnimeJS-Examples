@@ -7,33 +7,14 @@ import {
   AnimationContainer,
   AnimeButton,
   MultipleAnimationsElementContainer,
-  MultipleAnimationsWrapper
-} from "../../styled-components";
+  MultipleAnimationsWrapper,
+  color_green,
+  color_purple
+} from "../../styled-components/styled-components";
+
+import {MultipleAnimationsWithDelay} from '../../animations/multiple-animations';
 
 import AnimationButton from "../../components/animation-button";
-
-const MultipleAnimationsWithDelay = (target, animate) => {
-  Anime.remove(target.childNodes);
-  let nodes = target.childNodes;
-  let parentNode = target.parentNode;
-  let animation = Anime({
-    targets: nodes,
-    translateX: animate ? `${target.offsetWidth - 90}` : '0',
-    rotate: animate ? 360 : 0,
-    borderRadius: animate ? '50%' : '0',
-    duration: (el, l) => {
-      return 2000
-    },
-    elasticity: 600,
-    delay: (el, l) => {
-      return (l * 300)
-    }
-  })
-}
-
-let decoratorTest = (target) => {
-  target.message = "This is a decorated whatever..."
-}
 
 class MultipleAnimations extends Component {
 
