@@ -12,13 +12,12 @@ import AnimationButton from '../../components/animation-button'
 let TimelineContainer = Styled.div`
     margin: 0 auto;
     margin-top: 50px;
-    width: 80%;
+    width: 30%;
     border: 1px solid ${color_green};
     min-height: 50px;
     padding: 50px 0px;
     padding-bottom: 80px;
     overflow: hidden;
-    transform: translateX(-150%);
 `
 let TimelineElement = Styled.div`
     width: 90%;
@@ -36,14 +35,7 @@ let TimelineElement = Styled.div`
         display: block;
     }
 `
-const clearAnimation = (currentAnimation) => {
-    if(currentAnimation){
-        currentAnimation.pause()
-    }
-}
-
-const TimeLineAnimation = (animate, target) => {
-    clearAnimation(animation)
+const TimeLineAnimationStart = (target) => {
     let target_container = target;
     let target_parent = target.parentNode;
     let target_childeren = target.childNodes;
@@ -53,20 +45,47 @@ const TimeLineAnimation = (animate, target) => {
     animation
     .add({ 
         targets: target_container,
-        translateX: animate ? 2 : '-150%',
-        opacity: animate ? 1 : 0,
+        width: ['10%','80%'],
         duration: 1500,
         elasticity: 100
     }).add({
         targets: target_childeren,
-        translateX: animate ? '0px' : '-150%',
-        opacity: animate ? 1 : 0,
+        translateY: ['-50px', '0px'],
+        opacity: [0, 1],
         duration: 3000,
         delay: (el, l) => {
             return (l*400)
         }
     })
 }
+
+const TimeLineAnimationReturn = (target) => {
+    let target_container = target;
+    let target_parent = target.parentNode;
+    let target_childeren = target.childNodes;
+    Anime.remove(target_container);
+    Anime.remove(target_childeren);
+    let animation = Anime.timeline();
+    animation
+    .add({
+        targets: target_childeren,
+        translateY: ['0px', '-50px'],
+        opacity: [1, 0],
+        duration: 1200,
+        offset: (el, l)=>{
+            return -(l * 400)
+        },
+        delay: (el, l) =>{
+            return (l * 400)
+        }
+    }).add({
+        targets: target_container,
+        width: ['80%', '10%'],
+        duration: 1600,
+        elasticity: 150
+    })
+}
+
 class TimelineAnimations extends Component {
     constructor(props){
         super(props);
@@ -79,7 +98,11 @@ class TimelineAnimations extends Component {
         this.setState({
             animate: !this.state.animate
         })
-        TimeLineAnimation(this.state.animate, this.node)
+        if(animate){
+            TimeLineAnimationStart(this.node)
+        }else{
+            TimeLineAnimationReturn(this.node)
+        }
     }
     render() {
         return (
