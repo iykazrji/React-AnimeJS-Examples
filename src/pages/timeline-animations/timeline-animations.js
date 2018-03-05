@@ -12,7 +12,7 @@ import AnimationButton from '../../components/animation-button'
 let TimelineContainer = Styled.div`
     margin: 0 auto;
     margin-top: 50px;
-    width: 30%;
+    width: 10%;
     border: 1px solid ${color_green};
     min-height: 50px;
     padding: 50px 0px;
@@ -24,8 +24,8 @@ let TimelineElement = Styled.div`
     margin: 0 auto;
     margin-top: 30px;
     border: 1px solid ${color_green};
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     transform: translateY(-150%);
     opacity: 0;
     span{
@@ -35,13 +35,24 @@ let TimelineElement = Styled.div`
         display: block;
     }
 `
+
+let animation = null; 
+
+const clearCurrentAnimation = (currentAnimation) => {
+    if(currentAnimation){
+        console.log('Remove current animation...')
+        currentAnimation.pause()
+    }
+}
+
 const TimeLineAnimationStart = (target) => {
+
+    clearCurrentAnimation(animation)
+
     let target_container = target;
     let target_parent = target.parentNode;
     let target_childeren = target.childNodes;
-    Anime.remove(target_container);
-    Anime.remove(target_childeren);
-    let animation = Anime.timeline();
+    animation = Anime.timeline();
     animation
     .add({ 
         targets: target_container,
@@ -52,37 +63,39 @@ const TimeLineAnimationStart = (target) => {
         targets: target_childeren,
         translateY: ['-50px', '0px'],
         opacity: [0, 1],
-        duration: 3000,
+        duration: 900,
+        elasticity: 300,
         delay: (el, l) => {
-            return (l*400)
+            return (l*100)
         }
     })
 }
 
 const TimeLineAnimationReturn = (target) => {
+
+    clearCurrentAnimation(animation)
+
     let target_container = target;
     let target_parent = target.parentNode;
     let target_childeren = target.childNodes;
-    Anime.remove(target_container);
-    Anime.remove(target_childeren);
-    let animation = Anime.timeline();
+
+    animation = Anime.timeline();
     animation
     .add({
         targets: target_childeren,
-        translateY: ['0px', '-50px'],
+        translateY: -50,
         opacity: [1, 0],
-        duration: 1200,
-        offset: (el, l)=>{
-            return -(l * 400)
-        },
+        duration: 800,
         delay: (el, l) =>{
-            return (l * 400)
-        }
+            return (l * 100)
+        },
+        easing: 'easeOutSine',
+
     }).add({
         targets: target_container,
         width: ['80%', '10%'],
         duration: 1600,
-        elasticity: 150
+        elasticity: 150,
     })
 }
 
@@ -98,7 +111,7 @@ class TimelineAnimations extends Component {
         this.setState({
             animate: !this.state.animate
         })
-        if(animate){
+        if(this.state.animate){
             TimeLineAnimationStart(this.node)
         }else{
             TimeLineAnimationReturn(this.node)
