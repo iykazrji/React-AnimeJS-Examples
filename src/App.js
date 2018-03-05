@@ -35,9 +35,7 @@ class App extends Component {
                 <TransitionGroup>
                   <Transition
                     key={props.location.pathname}
-                    timeout={500}
-                    mountOnEnter={true}
-                    unmountOnExit={true}
+                    timeout={animationDuration}
                     onEnter={animatePageIn}
                     onExit={animatePageOut}
                   >
