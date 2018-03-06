@@ -73,6 +73,7 @@ const completeSVG = (target) => {
         duration: 2300,
         delay: function(el, i) { return i * 350 },
         direction: 'alternate',
+        loop: false
     })
 
     let animatePurpleLines =  Anime({
@@ -83,6 +84,7 @@ const completeSVG = (target) => {
       duration: 1900,
       delay: function(el, i) { return i * 350 },
       direction: 'alternate',
+      loop: false  
     })
 }
 
