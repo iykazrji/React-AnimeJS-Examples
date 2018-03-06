@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Styled from "styled-components";
 import SingleAnimation from "./pages/single-animations/single-animations";
 import MultipleAnimations from "./pages/multiple-animations/multiple-animaitons";
-import TimelineAnimations from  "./pages/timeline-animations/timeline-animations"
+import TimelineAnimations from  "./pages/timeline-animations/timeline-animations";
+import SVGAnimations from "./pages/svg-animations/svg-animations";
 import { MenuComponent } from "./components/menu-component";
 import { TransitionGroup, Transition } from "react-transition-group";
 import { animatePageIn, animatePageOut } from "./animations/route-transtion";
@@ -48,6 +49,9 @@ class App extends Component {
                       <Route 
                         path="/timeline-animations" 
                         component={TimelineAnimations} />
+                      <Route
+                        path="/svg-animations"
+                        component={SVGAnimations} />
                     </Switch>
                   </Transition>
                 </TransitionGroup>

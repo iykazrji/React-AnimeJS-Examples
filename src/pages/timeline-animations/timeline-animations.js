@@ -7,7 +7,7 @@ import {
     AnimeButton,
     color_green
 } from '../../styled-components/styled-components'; 
-import AnimationButton from '../../components/animation-button'
+import AnimationButton from '../../components/animation-button';
 
 let TimelineContainer = Styled.div`
     margin: 0 auto;

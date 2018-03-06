@@ -26,6 +26,7 @@ export const MenuComponent  = (props)=>{
             <li><Link to="/">Single Animations</Link></li>
             <li><Link to="/multiple-animations">Multiple Elements Animations (With Delay)</Link></li>
             <li><Link to="/timeline-animations">TimeLine Animations</Link></li>
+            <li><Link to="/svg-animations">SVG Animations</Link></li>
          </MenuComponentUl>
     )
 }
