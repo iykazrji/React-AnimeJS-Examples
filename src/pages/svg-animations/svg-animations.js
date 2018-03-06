@@ -11,6 +11,10 @@ import {
 import AnimationButton from '../../components/animation-button';
 
 const AnimeSVG = Styled.svg`
+    margin: 0 auto;
+    width: 60%;
+    height: 380px;
+    display: block;
     .st0, st1{
         fill: none;
         stroke: ${color_purple};
@@ -54,13 +58,55 @@ const drawSVG = (target) => {
 
 }
 
+const completeSVG = (target) => {
+    let purple_lines = target.querySelectorAll(".st0");
+    let green_lines = target.querySelectorAll(".st1");
+
+    Anime.remove(purple_lines);
+    Anime.remove(green_lines);
+
+    let animateGreenLines =  Anime({
+        targets: green_lines,
+        opacity: 1,
+        strokeDashoffset: 0,
+        easing: 'easeInOutSine',
+        duration: 2300,
+        delay: function(el, i) { return i * 350 },
+        direction: 'alternate',
+    })
+
+    let animatePurpleLines =  Anime({
+      targets: purple_lines,
+      opacity: 1,
+      strokeDashoffset: 0,
+      easing: 'easeInOutSine',
+      duration: 1900,
+      delay: function(el, i) { return i * 350 },
+      direction: 'alternate',
+    })
+}
+
 class SVGAnimations extends Component {
     constructor(props){
         super(props)
-
+        this.state = {
+            animate: true
+        }
+        this.setOrReset = this.setOrReset.bind(this)
+        
     }
     componentDidMount(){
-        drawSVG(this.svg);
+        // drawSVG(this.svg);
+    }
+    setOrReset(){
+        this.setState({
+            animate: !this.state.animate
+        });
+        if(this.state.animate){
+            drawSVG(this.svg)
+        }else{
+            completeSVG(this.svg)
+        }
     }
     render() {
         return (
@@ -191,6 +237,8 @@ class SVGAnimations extends Component {
                                 C543.7,350,546.6,351.2,548.2,353.7z"/>
                         </g>
                     </AnimeSVG>
+
+                    <AnimationButton handleClick={this.setOrReset} />
                 </BgContainer>
             </div>
         );
