@@ -15,6 +15,7 @@ export const BgContainer = Styled.div`
     position: absolute;
     left: 0;
     right: 0;
+    transition: all 0.7s ease-out;
     overflow: hidden;
 `;
 
