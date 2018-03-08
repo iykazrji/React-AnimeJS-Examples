@@ -118,24 +118,29 @@ class TimelineAnimations extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            animate: true,
+            animate: false,
             inProgress: false
         }
         this.setOrReset = this.setOrReset.bind(this);
 
     }
     setOrReset() {
-        console.log(this.state.inProgress)
         if (!this.state.inProgress) {
+            this.setState({
+                animate: !this.state.animate
+            })
+        }
+    }
+    componentDidUpdate(prevProps, prevState) {
+        if ((prevState.animate !== this.state.animate))
             if (this.state.animate) {
                 this.setState({
                     inProgress: true
-                });
+                })
                 TimeLineAnimationStart(this.node).then(
                     () => {
                         console.log("Time to enter...")
                         this.setState({
-                            animate: false,
                             inProgress: false
                         })
                     }
@@ -148,14 +153,11 @@ class TimelineAnimations extends Component {
                     () => {
                         console.log("Time to Exit")
                         this.setState({
-                            animate: true,
                             inProgress: false
                         })
                     }
                 )
             }
-        }
-
     }
     render() {
         return (
