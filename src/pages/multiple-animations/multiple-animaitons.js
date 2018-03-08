@@ -21,7 +21,7 @@ class MultipleAnimations extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      animate: true
+      animate: false
     }
     this.setOrReset = this.setOrReset.bind(this);
   }
@@ -30,6 +30,9 @@ class MultipleAnimations extends Component {
     this.setState({
       animate: !this.state.animate
     })
+  }
+
+  componentDidUpdate(){
     MultipleAnimationsWithDelay(this.AnimationContainer, this.state.animate);
   }
 
