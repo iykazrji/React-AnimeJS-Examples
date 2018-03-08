@@ -38,7 +38,7 @@ export default class SingleAnimation extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      animate: true
+      animate: false
     };
     this.setOrReset = this.setOrReset.bind(this);
   }
@@ -46,6 +46,9 @@ export default class SingleAnimation extends Component {
     this.setState({
       animate: !this.state.animate
     });
+  }
+
+  componentDidUpdate(prevProps, prevState){
     AnimateElement(this.AnimeElement, this.state.animate); //Run the animate Function
   }
   render() {
