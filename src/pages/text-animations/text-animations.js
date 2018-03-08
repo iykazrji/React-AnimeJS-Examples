@@ -14,11 +14,15 @@ let TextAnimationContainer = Styled.div`
     height: auto;
     margin: 0 auto;
     color: ${color_green};
+    margin-top: 50px;
+    margin-bottom: 50px;
 `
 let TextAnimationSpan = Styled.span`
     font-size: 30px;
     letter-spacing: 1.5px;
     font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
 `
 
 class TextAnimations extends Component {

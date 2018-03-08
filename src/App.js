@@ -5,6 +5,7 @@ import SingleAnimation from "./pages/single-animations/single-animations";
 import MultipleAnimations from "./pages/multiple-animations/multiple-animaitons";
 import TimelineAnimations from  "./pages/timeline-animations/timeline-animations";
 import SVGAnimations from "./pages/svg-animations/svg-animations";
+import TextAnimations from "./pages/text-animations/text-animations";
 import { MenuComponent } from "./components/menu-component";
 import { TransitionGroup, Transition } from "react-transition-group";
 import { animatePageIn, animatePageOut } from "./animations/route-transtion";
@@ -52,6 +53,9 @@ class App extends Component {
                       <Route
                         path="/svg-animations"
                         component={SVGAnimations} />
+                      <Route
+                        path="/text-animations"
+                        component={TextAnimations} />
                     </Switch>
                   </Transition>
                 </TransitionGroup>

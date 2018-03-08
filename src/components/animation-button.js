@@ -11,6 +11,7 @@ const SpanWrapperStyle = {
     marginLeft: 'auto',
     marginRight: 'auto'
 }
+
 export default class AnimationButton extends Component {
   constructor(props) {
     super(props);
@@ -27,12 +28,15 @@ export default class AnimationButton extends Component {
       buttonPressed: !this.state.buttonPressed, 
       animate: !this.state.animate
     });
+    
     window.setTimeout(() => {
       this.setState({
         buttonPressed: !this.state.buttonPressed
       });
     }, 50);
+    
   }
+
   render() {
     return (
       <span>
