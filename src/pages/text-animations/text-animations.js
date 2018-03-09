@@ -79,7 +79,7 @@ let animateTextIn = (target) =>{
         targets: spanItem,
         opacity: [0, 1],
         duration: 500,
-        easing: 'easeOutExpo',
+        elasticity: 150,
         translateY: ['-110%', '0%'],
         delay: (el, l)=>{
             return 150 + 40 * l
@@ -94,10 +94,10 @@ let animateTextOut = (target) => {
         targets: spanItem,
         opacity: 0,
         duration: 500,
-        easing: 'easeOutExpo',
+        elasticity: 200,
         translateY: ['-110%'],
         delay: (el, l)=>{
-            return 200 + 80 * l
+            return 200 + 40 * l
         }
     })
 }
