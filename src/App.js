@@ -4,6 +4,7 @@ import Styled from "styled-components";
 import SingleAnimation from "./pages/single-animations/single-animations";
 import MultipleAnimations from "./pages/multiple-animations/multiple-animaitons";
 import TimelineAnimations from  "./pages/timeline-animations/timeline-animations";
+import MountUnmountAnimations from "./pages/mount-unmount/mount-unmount-animations";
 import SVGAnimations from "./pages/svg-animations/svg-animations";
 import TextAnimations from "./pages/text-animations/text-animations";
 import { MenuComponent } from "./components/menu-component";
@@ -56,6 +57,9 @@ class App extends Component {
                       <Route
                         path="/text-animations"
                         component={TextAnimations} />
+                      <Route 
+                        path="/mount-unmount-animations"
+                        component={MountUnmountAnimations} />
                     </Switch>
                   </Transition>
                 </TransitionGroup>
