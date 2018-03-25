@@ -10,6 +10,7 @@ import {
     color_green,
     color_purple
   } from "../../styled-components/styled-components";
+import ListContainer from './list-container'
 
 class MountUnmount extends Component {
     render () {
@@ -18,7 +19,7 @@ class MountUnmount extends Component {
                 <BgContainer className="bg-container">
                     <PageTitleP1>Mounting and Unmounting Components</PageTitleP1>
                     <AnimationContainer className="mount-unmount-container">
-                        
+                        <ListContainer></ListContainer>
                     </AnimationContainer>
                 </BgContainer>
             </div>

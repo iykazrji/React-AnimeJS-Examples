@@ -131,7 +131,24 @@ class TimelineAnimations extends Component {
             })
         }
     }
+
+    // Here we'd try to prevent interrupting the timeline till the
+    // Current Animation is complete. In the event there is a 
+    // Change in the component's state, if would check if
+    // an animation is currently running and only update
+    // if the animation has completed running. 
+    // The Timeline animatuion returns a 
+    // Promise...
+
     componentDidUpdate(prevProps, prevState) {
+
+        // It is important to check if the prev and current states are
+        // The same before making the call as it would implement a 
+        // Change of State. This is important so we don't make a 
+        // State update when a state update is being made and 
+        // Throw the component into an infinite loop of state
+        // Updates...
+        
         if ((prevState.animate !== this.state.animate))
             if (this.state.animate) {
                 this.setState({
