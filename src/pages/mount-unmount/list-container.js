@@ -86,7 +86,6 @@ class ListContainer extends Component {
     }
 
     renderListItems(){
-        console.log(this.state.list)
         let list = this.state.list;
         let listMap = list.map((item, index)=>{ 
             return <ListItem item={item.item} index={index} key={item.id} close={this.handleClose} />
@@ -95,7 +94,6 @@ class ListContainer extends Component {
     }
     
     updateScroll(){
-        console.log('Update Scroll')
         var element = this.itemsWrapper
         element.scrollTop = element.scrollHeight;
     }

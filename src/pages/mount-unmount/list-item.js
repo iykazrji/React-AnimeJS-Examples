@@ -11,7 +11,6 @@ let ListItemWrapperContainer = Styled.div`
     padding: 10px;
     transition: all 0.6s ease-out;
     height: 40px;
-    border: 1px solid;
 `
 
 let ListItemWrapper = Styled.li`
