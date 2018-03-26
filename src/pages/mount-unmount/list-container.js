@@ -4,6 +4,8 @@ import {
     color_green,
     color_purple
 } from "../../styled-components/styled-components"; 
+import ListItem from './list-item';
+import { TransitionGroup } from 'react-transition-group';
 
 let ListContainerWrapper = Styled.div`
     color: ${color_green};
@@ -42,43 +44,101 @@ let ListContainerTextInputWrapper = Styled.div`
         text-transform: uppercase;
         font-weight: 700;
         font-size: 10px;
+        :hover{
+            cursor: pointer;
+        }
     }
 `
 let ListContainerListItemsWrapper = Styled.div`
     flex: 2;
-    width: 100%;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-right: 20px;
     overflow: auto;
+    overflow-x: hidden;
+    
 `
 class ListContainer extends Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
-            list: ['Omo Shepeteri', 'Legbegbe', 'Science Student'],
-            textInputValue: ""
+            list: [{item: 'Omo Shepeteri',
+                    id: 0}, 
+                    {item: 'Legbegbe',
+                     id: 1}, 
+                    {item:'Science Student',
+                    id: 2}],
+            textInputValue: "",
+            id_count: 2
         }
-        this.changeTextInputValue = this.changeTextInputValue.bind(this)
+        this.changeTextInputValue = this.changeTextInputValue.bind(this);
+        this.handleAdd = this.handleAdd.bind(this);
+        this.handleClose = this.handleClose.bind(this);
+        this.updateScroll = this.updateScroll.bind(this);
     }
-
+    componentDidUpdate(){
+        this.updateScroll();
+    }
     changeTextInputValue(e){
-        console.log(this.state.textInputValue)
         this.setState({
             textInputValue: e.target.value
         })
     }
 
     renderListItems(){
-        
+        console.log(this.state.list)
+        let list = this.state.list;
+        let listMap = list.map((item, index)=>{ 
+            return <ListItem item={item.item} index={index} key={item.id} close={this.handleClose} />
+        })
+        return listMap;
     }
+    
+    updateScroll(){
+        console.log('Update Scroll')
+        var element = this.itemsWrapper
+        element.scrollTop = element.scrollHeight;
+    }
+
+    handleClose(index){
+        let newList = this.state.list.slice();
+        newList.splice(index, 1);
+        this.setState({
+            list: newList
+        })
+    }
+    
+    handleAdd(){
+        let item = this.state.textInputValue;
+        let id = ++this.state.id_count;
+        let item_obj = {
+            item: item,
+            id: id
+        }
+        this.setState({
+            list:  [...this.state.list, item_obj],
+            textInputValue: "",
+            id_count: id
+        });
+        // setTimeout(()=>{
+        //     this.updateScroll();
+        // }, 100)
+    }
+
     render () {
         return (
             <ListContainerWrapper>
-                <ListContainerListItemsWrapper></ListContainerListItemsWrapper>
+                <ListContainerListItemsWrapper innerRef={node=>{ this.itemsWrapper = node }}>
+                    <TransitionGroup>
+                        {this.renderListItems()}
+                    </TransitionGroup>
+                </ListContainerListItemsWrapper>
                 <ListContainerTextInputWrapper>
                     <input className="text-input" 
                            value={this.state.textInputValue} 
                            placeholder="Add New Item" 
                            onChange={this.changeTextInputValue} />
-                    <button className="add-btn">Add</button>
+                    <button className="add-btn" onClick={this.handleAdd}>Add</button>
                 </ListContainerTextInputWrapper>
             </ListContainerWrapper>
         )
