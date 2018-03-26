@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import Styled from 'styled-components'
+import React, { Component } from 'react';
+import Styled from 'styled-components';
+import ShortId from 'shortid';
 import {
     color_green,
     color_purple
@@ -63,11 +64,11 @@ class ListContainer extends Component {
         super(props);
         this.state = {
             list: [{item: 'Omo Shepeteri',
-                    id: 0}, 
+                    id: ShortId.generate()}, 
                     {item: 'Legbegbe',
-                     id: 1}, 
+                     id: ShortId.generate()}, 
                     {item:'Science Student',
-                    id: 2}],
+                    id: ShortId.generate()}],
             textInputValue: "",
             id_count: 2
         }
@@ -76,9 +77,13 @@ class ListContainer extends Component {
         this.handleClose = this.handleClose.bind(this);
         this.updateScroll = this.updateScroll.bind(this);
     }
+
     componentDidUpdate(){
+
+        // Run update scroll when there's a State change
         this.updateScroll();
     }
+    
     changeTextInputValue(e){
         this.setState({
             textInputValue: e.target.value
@@ -86,6 +91,7 @@ class ListContainer extends Component {
     }
 
     renderListItems(){
+        console.log(this.state.list)
         let list = this.state.list;
         let listMap = list.map((item, index)=>{ 
             return <ListItem item={item.item} index={index} key={item.id} close={this.handleClose} />
@@ -108,19 +114,14 @@ class ListContainer extends Component {
     
     handleAdd(){
         let item = this.state.textInputValue;
-        let id = ++this.state.id_count;
         let item_obj = {
             item: item,
-            id: id
+            id: ShortId.generate()
         }
         this.setState({
             list:  [...this.state.list, item_obj],
-            textInputValue: "",
-            id_count: id
+            textInputValue: ""
         });
-        // setTimeout(()=>{
-        //     this.updateScroll();
-        // }, 100)
     }
 
     render () {
