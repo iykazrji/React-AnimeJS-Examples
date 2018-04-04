@@ -12,7 +12,6 @@ export const BgContainer = Styled.div`
     padding: 50px;
     box-shadow: 0px 0px 4px rgba(12, 204, 120, 0.12);
     border-radius: 1px;
-    position: absolute;
     left: 0;
     right: 0;
     transition: all 0.7s ease-out;
@@ -25,11 +24,11 @@ export const PageTitleSpan1 = Styled.span`
     text-transform: uppercase;
     display: block;
     color: ${color_green};
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
-    text-align: center;
+    text-align: left;
     top: 10px;
-    font-size: 60px;
+    font-size: 20px;
     letter-spacing: 4px;
 `;
 
@@ -87,23 +86,27 @@ export const PageTitleContainer = Styled.div`
     width: 100%;
     display: block;
     align-items: center;
-    padding-top: 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(150, 150, 150, 0.5);
 `;
 
 export const AppWrapper = Styled.div`
     max-width: 100vw;
     overflow-x: hidden;
     background: linear-gradient(#16222A, #16222A);
-    height: 100vh;  
+    max-height: 100vh;  
     padding-bottom: 300px;
+    display: flex;
+    flex-direction: row;
 `;
 
 export const MenuWrapper = Styled.div`
     display: flex;
-    width: 70%;
+    width: 300px;
+    position: relative;
     margin: 0 auto;
-    flex-direction: row;
-    padding-top: 30px;
+    flex-direction: column;
     padding-bottom: 30px;
 `;
 

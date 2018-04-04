@@ -1,34 +1,52 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Styled from 'styled-components';
+import { PageTitleSpan1, PageTitleContainer } from '../styled-components/styled-components'
 
-const MenuComponentUl = Styled.ul`
+const MenuComponentUl = Styled.div`
     list-style: none;
     display: flex;   
-    flex-direction: row;
-    padding: 0px;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
     flex-spacing: space-around;
     color: #f9f9f9;
-    li{
-        margin-left: 50px;
+    height: 100%;
+    margin-top: 0px;
+    padding: 0px;
+    overflow: hidden;
+    div{
+        padding: 20px 20px;
+        width: 100%;
+        position: relative;
+        display: inline-block;
         a{
             color: #f9f9f9;
             text-decoration: none;
             font-size: 14px;
+            display: block;
         }
     }
 `
-export const MenuComponent  = (props)=>{
-    return(
-         <MenuComponentUl>
-            <li><Link to="/">Single Animations</Link></li>
-            <li><Link to="/multiple-animations">Multiple Elements Animations (With Delay)</Link></li>
-            <li><Link to="/timeline-animations">TimeLine Animations</Link></li>
-            <li><Link to="/svg-animations">SVG Animations</Link></li>
-            <li><Link to="/text-animations">Text Animations</Link></li>
-            <li><Link to="/mount-unmount-animations">Mount & Unmount Animations</Link></li>
-         </MenuComponentUl>
+const MenuComponentWrapper = Styled.div`
+    border-right: 1px solid rgba(150, 150, 150, 0.6);
+    height: 100%;
+    position: fixed;
+    width: 400px;
+`
+export const MenuComponent = (props) => {
+    return (
+        <MenuComponentWrapper className="menu-component-wrapper">
+            <PageTitleContainer>
+                <PageTitleSpan1>React - AnimeJS Examples.</PageTitleSpan1>
+            </PageTitleContainer>   
+            <MenuComponentUl>
+                <div><Link to="/">Single Animations</Link></div>
+                <div><Link to="/multiple-animations">Multiple Elements Animations (With Delay)</Link></div>
+                <div><Link to="/timeline-animations">TimeLine Animations</Link></div>
+                <div><Link to="/svg-animations">SVG Animations</Link></div>
+                <div><Link to="/text-animations">Text Animations</Link></div>
+                <div><Link to="/mount-unmount-animations">Mount & Unmount Animations</Link></div>
+            </MenuComponentUl>
+        </MenuComponentWrapper>
     )
 }
