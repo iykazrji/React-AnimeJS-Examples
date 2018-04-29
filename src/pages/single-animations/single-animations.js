@@ -54,25 +54,27 @@ export default class SingleAnimation extends Component {
   // }
   render() {
     return (
-      <BgContainer className="bg-container">
-        <PageTitleP1>Animating Single Elements</PageTitleP1>
-        <Transition
-          in={this.state.animate}
-          duration={1000}
-          timeout={500}
-          onEnter={()=>{ AnimateElement(this.AnimeElement, this.state.animate) }}
-          onExit={()=>{ AnimateElement(this.AnimeElement, this.state.animate) }}>
-          <AnimationContainer>
-            <AnimeElement
-              id="anime-element"
-              innerRef={node => {
-                this.AnimeElement = node;
-              }}
-            />
-            <AnimationButton handleClick={this.setOrReset} />
-          </AnimationContainer>
-        </Transition>
-      </BgContainer>
+      <div>
+        <BgContainer className="bg-container">
+          <PageTitleP1>Animating Single Elements</PageTitleP1>
+          <Transition
+            in={this.state.animate}
+            duration={1000}
+            timeout={500}
+            onEnter={() => { AnimateElement(this.AnimeElement, this.state.animate) }}
+            onExit={() => { AnimateElement(this.AnimeElement, this.state.animate) }}>
+            <AnimationContainer>
+              <AnimeElement
+                id="anime-element"
+                innerRef={node => {
+                  this.AnimeElement = node;
+                }}
+              />
+              <AnimationButton handleClick={this.setOrReset} />
+            </AnimationContainer>
+          </Transition>
+        </BgContainer>
+      </div>
     );
   }
 }

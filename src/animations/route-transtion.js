@@ -4,11 +4,11 @@ export const animatePageIn = PageElement => {
   Anime.remove(PageElement);
   let animation = Anime({
     targets: PageElement,
-    translateX: ["100%", "0"],
+    translateY: ["150%", "0px"],
     opacity: [0, 1],
-    duration: 2700,
+    duration: 3000,
     delay: 500,
-    elasticity: 50
+    elasticity: 400
   });
 };
 
@@ -16,8 +16,8 @@ export const animatePageOut = PageElement => {
   Anime.remove(PageElement);
   let animation = Anime({
     targets: PageElement,
-    translateX: ['0', '-100%'],
+    translateY: ['0px', '-150%'],
     opacity: [1, 0],
-    duration: 2200
+    duration: 3000,
   });
 };

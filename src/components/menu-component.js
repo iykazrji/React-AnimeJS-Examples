@@ -31,7 +31,9 @@ const MenuComponentWrapper = Styled.div`
     border-right: 1px solid rgba(150, 150, 150, 0.6);
     height: 100%;
     position: fixed;
-    width: 400px;
+    top: 0;
+    left: 0;
+    width: inherit;
 `
 export const MenuComponent = (props) => {
     return (
@@ -40,7 +42,7 @@ export const MenuComponent = (props) => {
                 <PageTitleSpan1>React - AnimeJS Examples.</PageTitleSpan1>
             </PageTitleContainer>   
             <MenuComponentUl>
-                <div><Link to="/">Single Animations</Link></div>
+                <div><Link to="/single-animations">Single Animations</Link></div>
                 <div><Link to="/multiple-animations">Multiple Elements Animations (With Delay)</Link></div>
                 <div><Link to="/timeline-animations">TimeLine Animations</Link></div>
                 <div><Link to="/svg-animations">SVG Animations</Link></div>

@@ -95,15 +95,16 @@ export const AppWrapper = Styled.div`
     max-width: 100vw;
     overflow-x: hidden;
     background: linear-gradient(#16222A, #16222A);
-    max-height: 100vh;  
-    padding-bottom: 300px;
+    min-height: 100vh;  
     display: flex;
     flex-direction: row;
+    padding-bottom: 10px;
 `;
 
 export const MenuWrapper = Styled.div`
     display: flex;
     width: 300px;
+    overflow: hidden;
     position: relative;
     margin: 0 auto;
     flex-direction: column;

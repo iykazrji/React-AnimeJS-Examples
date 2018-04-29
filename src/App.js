@@ -19,20 +19,27 @@ import {
 
 let PageWrapper = Styled.div`
   flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  > div{
+    width: 100%;
+  }
 `
 class App extends Component {
   constructor(props) {
     super(props);
   }
   render() {
-    let animationDuration = 700;
+    let animationDuration = 200;
     return (
       <Router>
-        <AppWrapper>
-          <MenuWrapper>
+        <AppWrapper className="app-wrapper">
+          <MenuWrapper className="menu-wrapper">
             <MenuComponent />
           </MenuWrapper>
-          <PageWrapper>
+          <PageWrapper className="page-wrapper">
             <Route
               render={props => {
                 return (
@@ -42,9 +49,12 @@ class App extends Component {
                       timeout={animationDuration}
                       onEnter={animatePageIn}
                       onExit={animatePageOut}
+                      mountOnEnter={true}
+                      unmountOnExit={true}
                     >
                       <Switch location={props.location}>
                         <Route exact path="/" component={SingleAnimation} />
+                        <Route exact path="/single-animations" component={SingleAnimation} />
                         <Route
                           path="/multiple-animations"
                           component={MultipleAnimations}
